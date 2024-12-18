@@ -45,6 +45,13 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@62f4f872db3836360b72999f4b87f1ff13310f3a
 
+      - name: Package JAR
+        uses: actions/setup-java@v4
+        with:
+          java-version: '22'
+      - name: Create package
+        run: mvn clean package
+
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
