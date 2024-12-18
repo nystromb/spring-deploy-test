@@ -48,7 +48,8 @@ jobs:
       - name: Package JAR
         uses: actions/setup-java@v4
         with:
-          java-version: '22'
+          java-version: '21'
+          distribution: 'corretto'
       - name: Create package
         run: mvn clean package
 
